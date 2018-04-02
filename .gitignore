@@ -1,0 +1,10 @@
+*.swp
+*.pyc
+*.sqlite
+venv/
+.idea
+*.iml
+build_migrator/rootfs
+gen
+
+deploy_migrator/docker-compose.yml

@@ -1,0 +1,16 @@
+version: '2'
+services:
+  migrator_samuele:
+      image: nutellinoit/imap-migrator:2.1
+      environment:
+        - FROMMAIL=samuele@nutellino.it
+        - FROMPASSWORD=REDACTED
+        - FROMHOST=mail.nutellino.it
+        - FROMSSL= # Empty equals false, 1 equals true
+        - FROMIGNORE_FOLDERS=
+        - TOMAIL=test@gmail.com
+        - TOPASSWORD=REDACTED
+        - TOHOST=imap.gmail.com
+        - TOSSL= # Empty equals false, 1 equals true
+        - TOROOT_FOLDER=[Gmail] # SWITCH TO "MIGRATION" FOLDER FOR ZIMBRA
+
