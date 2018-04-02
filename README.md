@@ -1,5 +1,5 @@
-migrate-imap-account-to-gmail
-=============================
+Docker Imap Migrator
+====================
 
 Progetto scritto in python per la migrazione mail via imap
 
