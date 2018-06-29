@@ -168,7 +168,7 @@ class Target(Base):
 
 class Database(object):
     def __init__(self):
-        self.connection = sqlite3.connect(__file__ + ".sqlite")
+        self.connection = sqlite3.connect("/database/"+os.environ['TOMAIL']+ ".sqlite")
 
     def create_tables(self):
         with self.connection:

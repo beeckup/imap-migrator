@@ -8,3 +8,4 @@ build_migrator/rootfs
 gen
 
 deploy_migrator/docker-compose.yml
+/deploy_migrator/database/

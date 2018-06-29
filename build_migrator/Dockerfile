@@ -9,8 +9,10 @@ RUN pip install six /imapclient.zip
 
 WORKDIR /
 
-ADD rootfs /code
+RUN mkdir /database
+RUN chmod 777 /database
 
+ADD rootfs /code
 WORKDIR /code
 
 CMD ["python","-u","migrate-imap-account-to-gmail.py"]
