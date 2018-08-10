@@ -1,7 +1,7 @@
 version: '2'
 services:
   migrator_samuele:
-      image: nutellinoit/imap-migrator:2.1
+      image: nutellinoit/imap-migrator:latest
       environment:
         - FROMMAIL=samuele@nutellino.it
         - FROMPASSWORD=REDACTED
