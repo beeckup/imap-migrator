@@ -13,4 +13,6 @@ services:
         - TOHOST=imap.gmail.com
         - TOSSL= # Empty equals false, 1 equals true
         - TOROOT_FOLDER=[Gmail] # SWITCH TO "MIGRATION" FOLDER FOR ZIMBRA
+      volumes:
+        - ./database/:/database/
 
