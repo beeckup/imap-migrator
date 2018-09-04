@@ -64,7 +64,7 @@ def main():
             target_folder = target_account.create_folder(folder)
         except Exception:
             print("\t La drectory esiste già , la seleziono'%s'" % folder)
-            target_folder = target_account.select_folder(folder)
+            #target_folder = target_account.select_folder(folder)
 
         try:
             folder_info = source_account.select_folder(folder)
@@ -158,8 +158,8 @@ class Target(Base):
             self.server.create_folder(folder)
         return folder
     
-    def select_folder(self, folder):
-        return self.server.select_folder(folder, readonly=True)
+    #def select_folder(self, folder):
+    #    return self.server.select_folder(folder, readonly=True)
 
     def append(self, folder, message, flags, date):
         try:
