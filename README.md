@@ -1,7 +1,7 @@
 Docker Imap Migrator
 ====================
 
-Progetto scritto in python per la migrazione mail via imap
+## Automatic imap mail migration
 
 Posizionarsi nella cartella deploy_migrator, copiare il file docker-compose.sample.yml in docker-compose.yml e modificare le variabili d'ambiente per la migrazione della casella (si può creare un container per ogni casella email. Se il container crasha basta riavviare e la migrazione riprende dal punto in cui era)
 

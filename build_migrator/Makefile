@@ -1,7 +1,5 @@
 build:
 	rm -rf rootfs || true
 	cp -r ../code rootfs
-	docker build -t nutellinoit/imap-migrator:latest .
+	docker build -t beeckup/imap-migrator:dev .
 	rm -rf rootfs || true
-push:
-	docker push nutellinoit/imap-migrator:latest
