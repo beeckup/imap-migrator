@@ -63,7 +63,8 @@ def main():
         try:
             target_folder = target_account.create_folder(folder)
         except Exception:
-            print("\t La drectory esiste già '%s'" % folder)
+            print("\t La drectory esiste già , la seleziono'%s'" % folder)
+            target_folder = target_account.select_folder(folder)
 
         try:
             folder_info = source_account.select_folder(folder)
