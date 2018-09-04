@@ -157,6 +157,9 @@ class Target(Base):
         if not self.server.folder_exists(folder):
             self.server.create_folder(folder)
         return folder
+    
+    def select_folder(self, folder):
+        return self.server.select_folder(folder, readonly=True)
 
     def append(self, folder, message, flags, date):
         try:
