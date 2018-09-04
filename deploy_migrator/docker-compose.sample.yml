@@ -1,7 +1,7 @@
 version: '2'
 services:
   migrator_samuele:
-      image: nutellinoit/imap-migrator:latest
+      image: beeckup/imap-migrator:latest
       environment:
         - FROMMAIL=samuele@nutellino.it
         - FROMPASSWORD=REDACTED
@@ -13,6 +13,7 @@ services:
         - TOHOST=imap.gmail.com
         - TOSSL= # Empty equals false, 1 equals true
         - TOROOT_FOLDER=[Gmail] # SWITCH TO "MIGRATION" FOLDER FOR ZIMBRA
+        # - STRIP_INBOX=INBOX
       volumes:
         - ./database/:/database/
 

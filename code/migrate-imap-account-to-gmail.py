@@ -60,11 +60,12 @@ def main():
     for folder in source_account.list_folders():
         print("Synchronizing folder '%s'" % folder)
         folder_sync_start = time.time()
-        try:
-            target_folder = target_account.create_folder(folder)
-        except Exception:
-            print("\t La drectory esiste già , la seleziono'%s'" % folder)
-            #target_folder = target_account.select_folder(folder)
+        target_folder = target_account.create_folder(folder)
+        #try:
+#
+        #except Exception:
+        #    print("\t La drectory esiste già'%s'" % folder)
+
 
         try:
             folder_info = source_account.select_folder(folder)
@@ -153,20 +154,34 @@ class Target(Base):
         if self.source_folder_separator != self.target_folder_separator:
             folder = folder.replace(self.source_folder_separator,
                     self.target_folder_separator)
-        folder = self.root_folder + self.target_folder_separator + folder
+
+        if self.root_folder == '':
+            folder = folder
+        else:
+            folder = self.root_folder + self.target_folder_separator + folder
+
+        try:
+            if str(os.environ['STRIP_INBOX']):
+                folder = folder.replace(str(os.environ['STRIP_INBOX']) + self.target_folder_separator, "")
+        except Exception:
+            print("\t notice: STRIP_INBOX not defined, continuing...")
+
         if not self.server.folder_exists(folder):
-            self.server.create_folder(folder)
+            try:
+                self.server.create_folder(folder)
+            except Exception:
+                print("\t Cannot create, returning folder '%s'" % folder)
         return folder
     
     #def select_folder(self, folder):
-    #    return self.server.select_folder(folder, readonly=True)
+    #    return self.server.select_folder(folder)
 
     def append(self, folder, message, flags, date):
         try:
             self.server.append(folder, message, flags, date, do_encode=False)
         except Exception as e:
-            print("Errore nella copia del messaggio:",e)
-            print("Faccio upload senza flags..:")
+            print("Error on message copy :",e)
+            print("Upload without flags..:")
             self.server.append(folder, message, '', date, do_encode=False)
 
 
