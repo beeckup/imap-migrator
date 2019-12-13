@@ -10,7 +10,7 @@ GMail.
 create `conf.py` as follows to use it:
 
 SOURCE = {
-    'HOST': 'zimbra4.busnet.it',
+    'HOST': 'server.mail.tld',
     'USERNAME': 'user',
     'PASSWORD': 'password',
     'SSL': False,
